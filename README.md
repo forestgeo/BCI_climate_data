@@ -9,7 +9,7 @@ http://biogeodb.stri.si.edu/physical_monitoring/pdf/Monthly%20summaries_BCI_vert
 
  - rainfall
  - maximum and minimum temperature
- - soil drainage
+ - soil moisture
  - solar radiation
  - ENSO intensity
  - CO2 *
