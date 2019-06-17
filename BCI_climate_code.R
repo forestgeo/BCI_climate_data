@@ -1,8 +1,13 @@
-#### Produce a figure with rainfall, temperature, CO2, etc from 1981 to 2015
-```{r Fig.S2 , eval=T, echo=F,message=F,warning=F,fig.width=12,fig.height=8,fig.pos='H',fig.cap='Mean time interval (year) between two censuses',tidy.opts=list(width.cutoff=50),tidy=TRUE, fig.show='asis',cache=TRUE}
+#### Produces a figure with rainfall, temperature, CO2, etc 
+#### from 1981 to 2015 for Barro Colorado Island, Panama
+#### Code by Ervan Rutishauser
+
+## ```{r Fig.S2 , eval=T, echo=F,message=F,warning=F,fig.width=12,fig.height=8,fig.pos='H',fig.cap='Mean time interval (year) between two censuses',tidy.opts=list(width.cutoff=50),tidy=TRUE, fig.show='asis',cache=TRUE}
 library(xlsx)
 library(ggplot2)
 library(tidyquant)
+library(reshape2)
+library(data.table)
 
 # Import data
 # download.file("http://biogeodb.stri.si.edu/physical_monitoring/pdf/Monthly%20summaries_BCI_vertical.xlsx","C:/Users/Ervan/Dropbox/AGB BCI/clim_data_ori.xlsx")
@@ -30,7 +35,7 @@ RR2 <- RR2[,c(1,5,3,2,4)]
 names(RR2) <- names(RR)
 RR <- rbind(RR,RR2)
 
-# Soil
+# Soil moisture
 temp <- read.xlsx("clim_data.xlsx","Soil")
 RR2 <- temp[,c("Year","month","X0_10","yearfrac")]
 names(RR2) <- names(RR)[1:4]
